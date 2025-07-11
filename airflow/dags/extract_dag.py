@@ -3,6 +3,14 @@ from datetime import datetime
 from airflow.operators.bash import BashOperator
 from airflow import DAG
 
+default_args = {
+    'owner': 'Laura',
+    'depends_on_past': False,
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retries': 0
+}
+
 with DAG(
     dag_id='extract_dag',
     description='A one task Airflow DAG',
